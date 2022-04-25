@@ -12,6 +12,9 @@ provider "yandex" {
   folder_id = var.folder_id
   zone      = var.zone
 } 
+data "yandex_compute_image" "crawler" {
+  name       = "crawler"
+}
 resource "yandex_compute_instance" "app" {
 name = "crawler"
 resources {
@@ -21,7 +24,7 @@ memory = 4
 boot_disk {
 initialize_params {
 # Указать id образа созданного в предыдущем домашнем задании
-image_id = var.image_id
+image_id = "${data.yandex_compute_image.crawler.id}"
 }
 }
 network_interface {
