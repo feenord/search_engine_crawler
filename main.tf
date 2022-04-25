@@ -17,6 +17,7 @@ data "yandex_compute_image" "crawler" {
 }
 resource "yandex_compute_instance" "app" {
 name = "crawler"
+hostname = "crawler"
 resources {
 cores = 2
 memory = 4
