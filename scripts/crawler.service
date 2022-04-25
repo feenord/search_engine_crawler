@@ -1,0 +1,15 @@
+#crawler.service
+
+[Unit]
+Description=crawler
+After=network.target 
+
+[Service]
+Type=simple
+User=ubuntu
+ExecStart=EXCLUDE_URLS='.*github.com' MONGO=127.0.0.1 RMQ_HOST=127.0.0.1 python3 -u crawler/crawler.py https://vitkhab.github.io/search_engine_test_site/
+ 
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
