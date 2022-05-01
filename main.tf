@@ -22,11 +22,11 @@ resources {
 cores = 2
 memory = 4
 }
-}
 boot_disk {
 initialize_params {
 # Указать id образа созданного в предыдущем домашнем задании
 image_id = "${data.yandex_compute_image.crawler.id}"
+}
 }
 network_interface {
 # Указан id подсети default-ru-central1-a
@@ -38,4 +38,3 @@ metadata = {
     ssh-keys = "ubuntu:${file(var.public_key_path)}"
 }
 }
-
