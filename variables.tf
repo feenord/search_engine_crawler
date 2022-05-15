@@ -20,5 +20,5 @@ variable service_account_key_file{
   description = "opt/key.json"
 }
 variable git_sha{
- description = "git"
+  description = "git"
 }
